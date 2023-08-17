@@ -12,7 +12,12 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Fira sans', 'Helvetica', 'Arial', 'sans-serif'],
+                display: ['Big Shoulders Display'],
+            },
+            colors: {
+                'green': '#1b762c',
+                'red': '#f00b2d',
             },
         },
     },
