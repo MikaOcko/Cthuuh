@@ -21,7 +21,7 @@
 
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-white">
-            {{-- @include('layouts.navigation') --}}
+            @include('layouts.navigation')
 
             <!-- Heading -->
             @if (@isset($hero))
@@ -29,7 +29,7 @@
             @else
                 <header class="bg-white shadow">
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                        {{ __('Dashboard') }}
+                        {{ __($slot) }}
                     </h2>
                 </header>
             @endif
