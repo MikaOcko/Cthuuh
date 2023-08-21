@@ -19,6 +19,10 @@ export default {
                 'green': '#1b762c',
                 'red': '#f00b2d',
             },
+            backgroundImage: {
+                'hero': "url('../images/hero.png')",
+                'story': "url('../images/story.png')",
+            }
         },
     },
 

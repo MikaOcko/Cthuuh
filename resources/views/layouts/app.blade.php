@@ -20,15 +20,20 @@
     </head>
 
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-white">
             {{-- @include('layouts.navigation') --}}
 
             <!-- Heading -->
-            <header class="bg-white shadow">
+            @if (@isset($hero))
                 {{ $hero }}
-            </header>
-
-
+            @else
+                <header class="bg-white shadow">
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                        {{ __('Dashboard') }}
+                    </h2>
+                </header>
+            @endif
+            
             <!-- Content -->
             <main>
                 {{ $content }}
