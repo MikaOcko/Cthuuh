@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('cart_id')->constrained('carts', 'id');
             $table->foreignId('product_id')->constrained('products', 'id');
             $table->foreignId('product_price');
-            // $table->foreignId('product_price')->constrained('products', 'price');
             $table->integer('quantity');
         });
     }
