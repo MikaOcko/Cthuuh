@@ -24,7 +24,7 @@
             @include('layouts.navigation')
 
             <!-- Heading -->
-            @if (@isset($hero))
+            {{-- @if (@isset($hero))
                 {{ $hero }}
             @else
                 <header class="bg-white shadow">
@@ -32,8 +32,11 @@
                         {{ __($slot) }}
                     </h2>
                 </header>
-            @endif
+            @endif --}}
             
+            <header>
+                {{$hero}}
+            </header>
             <!-- Content -->
             <main>
                 {{ $content }}
