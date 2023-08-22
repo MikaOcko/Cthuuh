@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="hero">
-        <div class="w-full h-full text-white bg-gradient-to-r from-cyan-900 to-teal-900 p-10">
+            <div class="w-full h-full text-white bg-gradient-to-r from-cyan-900 to-teal-900 p-10">
             {{-- <div class="w-full h-full bg-story"> --}}
                 <div class="container flex flex-col px-6 py-10 mx-auto space-y-6">
                     <div class="w-full">

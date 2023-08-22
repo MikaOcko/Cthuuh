@@ -59,11 +59,25 @@
         </section>
 
         {{-- Section "Le mythe de Cthuuh" --}}
-        <section>
-
+        <section class="w-full h-full text-white bg-gradient-to-r from-cyan-900 to-teal-900 p-10">
+            <div class="container flex flex-col items-center justify-center gap-9">
+                <h2 class="p-2">
+                    Le mythe de Cthuuh
+                </h2>
+    
+                <p class="p-2 px-10">
+                    Chez Cthuuh, nous embrassons cette énergie surnaturelle et lui donnons vie dans nos produits.
+                    Nos boissons énergisantes vous donneront le pouvoir d'affronter l'inconnu et de vaincre vos peurs.
+                    Alors venez, rejoignez-nous dans ce voyage au-delà du domaine de la perception humaine.
+                </p>
+    
+                <x-secondary-button class="p-2">
+                    <a href=" {{url('/story')}}" target="_blank" rel="noopener noreferrer">                    
+                        Découvrir le mythe
+                    </a>
+                </x-secondary-button>
+            </div>
         </section>
-
-
     </x-slot>
 
     <x-slot name="footer">
