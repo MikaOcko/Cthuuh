@@ -1,6 +1,6 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-2xl font-bold text-black">
             {{ __('Profile Information') }}
         </h2>
 
@@ -48,7 +48,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-success-button>{{ __('Save') }}</x-success-button>
 
             @if (session('status') === 'profile-updated')
                 <p
