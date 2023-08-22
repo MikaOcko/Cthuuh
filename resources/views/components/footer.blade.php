@@ -1,4 +1,4 @@
-<div class="bg-white flex flex-col m-5 gap-6 items-center justify-between px-15 lg:px-40 lg:flex-row ">
+<div class="bg-white flex flex-col m-5 gap-6 items-center justify-between px-15 lg:px-40 lg:flex-row border-t border-gray-300">
     {{-- Logo animal --}}
     <div>
         <img

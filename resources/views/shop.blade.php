@@ -5,6 +5,7 @@
     </x-slot>
 
     <x-slot name="content">
+        
     </x-slot>
 
     <x-slot name="footer">
