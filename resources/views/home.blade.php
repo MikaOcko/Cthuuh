@@ -28,8 +28,8 @@
     </x-slot>
 
     <x-slot name="content">
-        <div class=" flex flex-col items-center justify-center">
-
+        {{-- Section "Nos produits" --}}
+        <section class=" flex flex-col items-center justify-center">
             <h2 class="py-5 my-10">
                 Nos produits
             </h2>
@@ -56,16 +56,18 @@
                     Découvrir la boutique
                 </a>
             </x-primary-button>
-        </div>
+        </section>
 
+        {{-- Section "Le mythe de Cthuuh" --}}
+        <section>
 
-
-
+        </section>
 
 
     </x-slot>
 
     <x-slot name="footer">
+        <x-footer/>
     </x-slot>
 
 </x-app-layout>
