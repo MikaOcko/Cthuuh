@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ url('/')}}">
+                    <a href="{{ url('/home')}}">
                         <img src="../images/logo-texte.png" alt="logo texte de Cthuuh" class="block h-9 w-auto">
                     </a>
                 </div>
@@ -158,9 +158,9 @@
                 <x-responsive-nav-link :href="route('dashboard')">
                     {{ __('Tableau de bord') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('profile.edit')">
+                {{-- <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
-                </x-responsive-nav-link>
+                </x-responsive-nav-link> --}}
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
