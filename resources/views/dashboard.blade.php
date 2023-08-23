@@ -31,7 +31,7 @@
                             {{ __("Gestion des produits") }}
                         </div>
                         <div>
-                            {{-- @include('products.edit') --}}
+                            {{-- @include('products.index') --}}
                         </div>
                     </div>
                 </div>

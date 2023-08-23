@@ -25,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        // On retourne la vue "/resources/views/products/edit.blade.php"
+        return view("products.edit");
     }
 
     /**
