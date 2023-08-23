@@ -10,6 +10,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // Affichage de tous les produits (dans la boutique)
     public function index()
     {
         //
