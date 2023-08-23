@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route simple
+// Accueil
 Route::get('/', function () {
     return view('home');
 });
@@ -22,19 +24,24 @@ Route::get('/home', function () {
     return view('home');
 });
 
+// Le mythe de Cthuuh
 Route::get('/story', function () {
     return view('story');
 });
-
+// La boutique
 Route::get('/shop', function () {
     return view('shop');
 });
 
-
+// Tableau de bord admin/user
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Routes ressource pour les produits
+Route::resource("products", ProductController::class);
+
+// Routes du profil
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
