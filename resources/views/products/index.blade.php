@@ -1,10 +1,10 @@
 <section>
     <h1>Tous les produits</h1>
 
-    <p>
+    {{-- <p>
         <!-- Lien pour créer un nouvel article : "products.create" -->
         <a href="{{ route('products.create') }}" title="Ajouter un produit" >Ajouter un produit</a>
-    </p>
+    </p> --}}
 
     <!-- Le tableau pour lister les produits -->
     <table border="1" >
