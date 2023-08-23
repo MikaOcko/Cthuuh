@@ -70,7 +70,7 @@
                 {{-- Paragraphe --}}
                 <div class="p-2">
                     <h2>
-                        Un design unique
+                        Un design inspiré
                     </h2>
                     <p>
                         Notre design est inspiré de l'univers de Lovecraft, avec des motifs

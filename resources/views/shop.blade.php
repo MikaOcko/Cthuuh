@@ -22,7 +22,20 @@
     </x-slot>
 
     <x-slot name="content">
-        
+        {{-- <section class="flex justify-center items-center p-2 gap-4">
+            <!-- Affichage de tous les produits-->
+            @foreach ($products as $product)
+                <div class="wrapper max-w-xs bg-gray-50 rounded-b-md shadow-lg overflow-hidden"> --}}
+                    {{-- Image du produit--}}
+                    {{-- <div>
+                        <!-- Lien pour afficher le produit : "products.show" -->
+                        <a href="{{ route('products.show', $product) }}" title="voir le produit" class="font-semibold">
+                            <img src="{{ asset('storage/'.$product->picture) }}" alt="Image du produit" style="max-width: 50%;">
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </section> --}}
     </x-slot>
 
     <x-slot name="footer">
