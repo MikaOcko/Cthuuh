@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -78,7 +79,42 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        // 1. La validation
+
+        // Les règles de validation pour "title" et "content"
+        $rules = [
+            'name' => 'bail|required|string|max:255',
+            "description" => 'bail|required',
+            'price' => 'bail|required',
+        ];
+
+        // Si une nouvelle image est envoyée
+        if ($request->has("picture")) {
+            // On ajoute la règle de validation pour "picture"
+            $rules["picture"] = 'bail|required|image|max:1024';
+        }
+
+        $this->validate($request, $rules);
+
+        // 2. On upload l'image dans "/storage/app/public/products"
+        if ($request->has("picture")) {
+
+            //On supprime l'ancienne image
+            Storage::delete($product->picture);
+
+            $chemin_image = $request->picture->store("products");
+        }
+
+        // 3. On met à jour les informations du Post
+        $product->update([
+            "name" => $request->name,
+            "picture" => isset($chemin_image) ? $chemin_image : $product->picture,
+            "description" => $request->description,
+            'price' => $request->price
+        ]);
+
+        // 4. On affiche le Post modifié : route("posts.show")
+        return redirect(route("products.show", $product));
     }
 
     /**

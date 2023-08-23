@@ -1,6 +1,6 @@
     <section>
 
-        {{-- <!-- Si nous avons un produit $product -->
+        <!-- Si nous avons un produit $product -->
 	@if (isset($product))
 
         <h1>Modifier un produit</h1>
@@ -11,12 +11,14 @@
         <!-- <input type="hidden" name="_method" value="PUT"> -->
         @method('PUT')
 
-    @else --}}
+    @else
+
         <h1>Ajouter un produit</h1>
 
         <!-- Le formulaire est géré par la route "products.store" -->
         <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data" >
-
+    
+    @endif
             <!-- Le token CSRF -->
             @csrf
             {{-- récupération de user_id --}}
