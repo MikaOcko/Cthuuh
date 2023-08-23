@@ -13,7 +13,11 @@ class ProductController extends Controller
     // Affichage de tous les produits (dans la boutique)
     public function index()
     {
-        //
+        //On récupère tous les produits
+        $products = Product::latest()->get();
+
+        // On transmet les produits à la vue
+        return view("products.index", compact("products"));
     }
 
     /**

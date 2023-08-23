@@ -30,6 +30,9 @@
                         <div class="p-6 text-gray-900">
                             {{ __("Gestion des produits") }}
                         </div>
+                        <div>
+                            {{-- @include('products.edit') --}}
+                        </div>
                     </div>
                 </div>
             </div>
