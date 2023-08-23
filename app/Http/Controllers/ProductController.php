@@ -79,9 +79,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        // 1. La validation
+        //validation
 
-        // Les règles de validation pour "title" et "content"
+        // Les règles de validation pour "name" et "description"
         $rules = [
             'name' => 'bail|required|string|max:255',
             "description" => 'bail|required',
@@ -96,7 +96,7 @@ class ProductController extends Controller
 
         $this->validate($request, $rules);
 
-        // 2. On upload l'image dans "/storage/app/public/products"
+        // upload l'image dans "/storage/app/public/products"
         if ($request->has("picture")) {
 
             //On supprime l'ancienne image
@@ -105,7 +105,7 @@ class ProductController extends Controller
             $chemin_image = $request->picture->store("products");
         }
 
-        // 3. On met à jour les informations du Post
+        // MAJ des infos du produit
         $product->update([
             "name" => $request->name,
             "picture" => isset($chemin_image) ? $chemin_image : $product->picture,
@@ -113,7 +113,7 @@ class ProductController extends Controller
             'price' => $request->price
         ]);
 
-        // 4. On affiche le Post modifié : route("posts.show")
+        // affichage du produit modifié : route("products.show")
         return redirect(route("products.show", $product));
     }
 
@@ -122,6 +122,13 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        //supprime l'image existant
+        Storage::delete($product->picture);
+
+        // supprime les informations du produit
+        $product->delete();
+
+        // Redirection route "products.index"
+        return redirect(route('products.index'));
     }
 }
