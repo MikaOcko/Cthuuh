@@ -34,8 +34,6 @@
                 </div>
             </div>
 
-
-
         {{-- Dasboard utilisateur --}}
         @else 
 
@@ -48,9 +46,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         @endif 
         
         
