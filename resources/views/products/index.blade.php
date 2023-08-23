@@ -1,10 +1,12 @@
 <section>
-    <h1>Tous les produits</h1>
+    <h2>Gestion des produits</h2>
 
-    <p>
+    <x-success-button class="my-6 justify-end">
         <!-- Lien pour créer un nouvel article : "products.create" -->
-        <a href="{{ route('products.create') }}" title="Ajouter un produit" >Ajouter un produit</a>
-    </p>
+        <a href="{{ route('products.create') }}" title="Ajouter un produit" >
+            Ajouter un produit
+        </a>
+    </x-success-button>
 
     <!-- Le tableau pour lister les produits -->
     <table border="1" >
@@ -15,6 +17,10 @@
             </tr>
         </thead>
         <tbody>
+            {{-- Récupération des données de la liste des produits --}}
+            @php
+                $products = \App\Models\Product::all();
+            @endphp
             <!-- On parcourt la collection de Product-->
             @foreach ($products as $product)
             <tr>
