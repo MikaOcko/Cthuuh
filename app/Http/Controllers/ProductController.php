@@ -34,7 +34,27 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validation
+        $this->validate($request, [
+            'name' => 'bail|required|string|max:255',
+            "picture" => 'bail|required|image|max:1024',
+            "description" => 'bail|required',
+            'price' => 'bail|required',
+        ]);
+
+        //upload l'image dans "/storage/app/public/products"
+        $chemin_image = $request->picture->store("products");
+
+        //enregistrement des infos du produit
+        Product::create([
+            "name" => $request->name,
+            "picture" => $chemin_image,
+            "description" => $request->description,
+            "price" => $request->price,
+        ]);
+
+        //retour vers tous les produits : route("products.index")
+        return redirect(route("products.index"));
     }
 
     /**
