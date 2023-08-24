@@ -36,7 +36,7 @@
                             {{-- Image du produit--}}
                             <div>
                                 <!-- Lien pour afficher le produit : "products.show" -->
-                                <a href="{{ route('products.show', $product) }}" title="voir le produit" class="font-semibold">
+                                <a href="{{ route('products.show', $product) }}">
                                     <img src="{{ asset('storage/'.$product->picture) }}" alt="Image du produit">
                                 </a>
                             </div>

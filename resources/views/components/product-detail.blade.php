@@ -3,18 +3,23 @@
               <div class="md:flex-1 px-4">
                 <div x-data="{ image: 1 }" x-cloak>
                   <div class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
+
+                    {{-- Photo 1 --}}
                     <div x-show="image === 1" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
                       <span class="text-5xl">1</span>
                     </div>
-        
+                    
+                    {{-- Photo 2 --}}
                     <div x-show="image === 2" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
                       <span class="text-5xl">2</span>
                     </div>
-        
+                    
+                    {{-- Photo 2 --}}
                     <div x-show="image === 3" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
                       <span class="text-5xl">3</span>
                     </div>
-        
+                    
+                    {{-- Photo 4 --}}
                     <div x-show="image === 4" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
                       <span class="text-5xl">4</span>
                     </div>
