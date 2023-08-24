@@ -22,20 +22,29 @@
     </x-slot>
 
     <x-slot name="content">
-        {{-- <section class="flex justify-center items-center p-2 gap-4">
-            <!-- Affichage de tous les produits-->
-            @foreach ($products as $product)
-                <div class="wrapper max-w-xs bg-gray-50 rounded-b-md shadow-lg overflow-hidden"> --}}
-                    {{-- Image du produit--}}
-                    {{-- <div>
-                        <!-- Lien pour afficher le produit : "products.show" -->
-                        <a href="{{ route('products.show', $product) }}" title="voir le produit" class="font-semibold">
-                            <img src="{{ asset('storage/'.$product->picture) }}" alt="Image du produit" style="max-width: 50%;">
-                        </a>
-                    </div>
+        <section>
+            <div class="container px-5 py-24 mx-auto">
+                {{-- Récupération des données de la liste des produits --}}
+                @php
+                    $products = \App\Models\Product::all();
+                @endphp
+
+                <div class="flex flex-wrap gap-9">
+                    <!-- Affichage de tous les produits-->
+                    @foreach ($products as $product)
+                        <div class="bg-white rounded-xl border border-gray-300 shadow-2xl p-10 h-52 w-52">
+                            {{-- Image du produit--}}
+                            <div>
+                                <!-- Lien pour afficher le produit : "products.show" -->
+                                <a href="{{ route('products.show', $product) }}" title="voir le produit" class="font-semibold">
+                                    <img src="{{ asset('storage/'.$product->picture) }}" alt="Image du produit">
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
-        </section> --}}
+            </div>
+        </section>
     </x-slot>
 
     <x-slot name="footer">

@@ -1,7 +1,7 @@
 <section>
     <h2>Gestion des produits</h2>
 
-    <x-success-button class="my-6 justify-end">
+    <x-success-button class="my-6">
         <!-- Lien pour créer un nouvel article : "products.create" -->
         <a href="{{ route('products.create') }}" title="Ajouter un produit" >
             Ajouter un produit
