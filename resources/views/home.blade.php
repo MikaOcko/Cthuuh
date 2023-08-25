@@ -21,7 +21,7 @@
                 </div>
         
                 <div class="flex items-center justify-center w-80 h-80 lg:w-1/2">
-                    <img class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl" src="../images/hero.png" alt="glasses photo">
+                    <img class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl" src="../images/can-summer-2.jpg" alt="photo de la Cthuuh édition limitée">
                 </div>
             </div>
         </div>
@@ -37,17 +37,17 @@
             <div class="flex flex-col gap-6 lg:flex-row lg:gap-6  ">
                 {{-- Produit 1 --}}
                 <div class="bg-white rounded-xl border border-gray-300 shadow-2xl p-10 max-w-xs">
-                    <img src="../images/original.png"  class="object-cover" alt="logo du produit Cthuuh original">
+                    <img src="../images/can-original.jpg"  class="object-cover" alt="logo du produit Cthuuh original">
                 </div>
 
                 {{-- Produit 2 --}}
                 <div class="bg-white rounded-xl border border-gray-300 shadow-2xl p-10 max-w-xs">
-                    <img src="../images/zero.png"  class="object-cover" alt="logo du produit Cthuuh zero">
+                    <img src="../images/can-zero.jpg"  class="object-cover" alt="logo du produit Cthuuh zero">
                 </div>
 
                 {{-- Produit 3 --}}
                 <div class="bg-white rounded-xl border border-gray-300 shadow-2xl p-10 max-w-xs">
-                    <img src="../images/innersmouth.png"  class="object-cover" alt="logo du produit Cthuuh Innersmouth">
+                    <img src="../images/can-innersmouth.jpg"  class="object-cover" alt="logo du produit Cthuuh Innersmouth">
                 </div>
             </div>
 
