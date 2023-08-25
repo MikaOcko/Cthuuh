@@ -10,7 +10,11 @@
                         </h1>
                         
                         <div class="mt-8 space-y-5">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>
+                                Découvrez la toute nouvelle boisson énergisante Cthuuh en édition limitée.
+                                Un concentré des tropiques avec son goût exotique et fruité.
+                                Offrez-vous un coup de boost pour affronter vos journées - et soirées - chaudes.
+                            </p>
                             <x-primary-button>
                                 <a href="{{url('/shop')}}" target="_blank" rel="noopener noreferrer">            
                                     Découvrir
