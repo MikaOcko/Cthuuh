@@ -1,9 +1,9 @@
 <x-app-layout>
 	<x-slot name="hero">
 		<div class="w-full h-80 bg-gradient-to-r from-orange-100 to-orange-400 p-10">
-            {{-- <div class="w-full h-full bg-hero"> --}}
+        {{-- <div class="w-full h-full bg-hero"> --}}
                 
-            </div>
+        </div>
 	</x-slot>
 	
 	<x-slot name="content">
@@ -100,7 +100,7 @@
 				</div>
 
 				<x-primary-button>
-					<a href="{{ route('products.index') }}" title="Retourner aux produits" >Retourner aux produits</a>
+					<a href="{{ url('/shop') }}" title="Retourner aux produits" >Retourner aux produits</a>
 				</x-primary-button>
 			</div>
 		</section>
