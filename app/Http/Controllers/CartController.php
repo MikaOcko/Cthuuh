@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -36,8 +37,13 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        // return view("cart.show", compact("product"));
-        return view("cart.show");
+        $id = Auth::user()->id;
+
+        // récupération des paniers dont le user_id correspond à l'id de l'utilisateur connecté
+        $cart = Cart::where('user_id', '=', $id)->get();
+        // Données de tous les paniers du user (items) : dd($cart);
+
+        return view("cart.show", compact('cart'));
     }
 
     /**
