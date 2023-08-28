@@ -74,6 +74,7 @@
 								{{ $product->description }}
 							</p>
 							
+							{{-- Ajout au panier seulement si l'utilisateur es tconnecté --}}
 							<form action="{{url('/add_cart', $product->id)}}" method="post">
 
 								@csrf
@@ -95,7 +96,7 @@
 										</select>
 									</div>
 						  
-									  {{-- Bouton "Ajouter au panier" --}}
+									{{-- Bouton "Ajouter au panier" --}}
 									<x-success-button class="h-14 px-6 py-2">
 										<input type="submit" value="Ajouter au panier">
 									</x-success-button>

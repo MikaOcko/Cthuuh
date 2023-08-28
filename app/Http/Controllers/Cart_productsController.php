@@ -2,11 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Cart_products;
+use App\Models\Cart;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Cart_productsController extends Controller
 {
+
+    // Ajouter un produit dans la panier
+    public function addToCart(Request $request, $id)
+    {
+        // Ajout seulement si l'utilisateur est connecté
+        if (Auth::id()) {
+
+            // Données de l'utilisateur (attributes)
+            $user = Auth::user();
+            // dd($user);
+
+            // Données du produit (attributes)
+            $product = Product::find($id);
+            // dd($product);
+
+            $cart = new Cart();
+            dd($cart);
+        } else {
+            return redirect('login');
+        }
+    }
+
+
     /**
      * Display a listing of the resource.
      */

@@ -44,11 +44,18 @@ Route::get('/dashboard', function () {
 // Routes ressource pour les produits
 Route::resource("products", ProductController::class);
 
-// Routes ressource pour le panier
-Route::resource("cart", CartController::class);
+
+// Route pour montrer le panier
+Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
+// Route pour supprimer le panier
+Route::delete('/cart', [CartController::class, 'destroy'])->name('cart.destroy');
+
 
 // Routes ressource pour Cart_products
-Route::resource("cartproducts", Cart_productsControllert::class);
+// Route::resource("cartproducts", Cart_productsControllert::class);
+
+// Route pour ajouter un produit dans le panier
+Route::post('/add_cart/{id}', [Cart_productsController::class, 'addToCart']);
 
 
 // Routes du profil
