@@ -34,7 +34,7 @@ class Cart_productsController extends Controller
                 $cart_product = new Cart_products();
                 $cart_product->cart_id = $cart->id;
                 $cart_product->product_id = $product->id;
-                $cart_product->product_price = $product->price * $request->quantity;
+                $cart_product->total_price = $product->price * $request->quantity;
                 $cart_product->quantity = $request->quantity;
                 $cart_product->save(); // Sauvegarder la classe pivot
 
