@@ -91,7 +91,7 @@
 									</div>
 						  
 									{{-- Bouton "Ajouter au panier" --}}
-									<x-success-button class="h-14 px-6 py-2">
+									<x-success-button class="h-14 px-6 py-2" id="add-to-cart">
 										<input type="submit" value="Ajouter au panier">
 									</x-success-button>
 								</div>

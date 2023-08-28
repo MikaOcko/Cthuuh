@@ -37,6 +37,7 @@ class CartController extends Controller
     public function show(Cart $cart)
     {
         // return view("cart.show", compact("product"));
+        return view("cart.show");
     }
 
     /**
