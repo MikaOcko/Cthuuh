@@ -20,19 +20,19 @@
 									</div>
 									
 									{{-- Photo 2 --}}
-									{{-- <div x-show="image === 2" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+									<div x-show="image === 2" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
 										<span class="text-5xl">2</span>
-									</div> --}}
+									</div>
 									
 									{{-- Photo 2 --}}
-									{{-- <div x-show="image === 3" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+									<div x-show="image === 3" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
 										<span class="text-5xl">3</span>
-									</div> --}}
+									</div>
 									
 									{{-- Photo 4 --}}
-									{{-- <div x-show="image === 4" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+									<div x-show="image === 4" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
 										<span class="text-5xl">4</span>
-									</div> --}}
+									</div>
 								</div>
 					
 								<div class="flex -mx-2 mb-4">
@@ -73,29 +73,34 @@
 							<p class="text-gray-500">
 								{{ $product->description }}
 							</p>
-			
-							<div class="flex py-4 space-x-4">
+							
+							<form action="{{url('/add_cart', $product->id)}}" method="post">
 
-								{{-- Quantité: sélectionner un chiffre --}}
-								<div class="relative">
-									<div class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase tracking-wide font-semibold">
-										Quantité
+								@csrf
+
+								<div class="flex py-4 space-x-4">
+
+									{{-- Quantité: sélectionner un chiffre --}}
+									<div class="relative">
+										<div class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase tracking-wide font-semibold">
+											Quantité
+										</div>
+	
+										<select class="cursor-pointer appearance-none rounded-lg border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1 w-32">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
 									</div>
-
-									<select class="cursor-pointer appearance-none rounded-lg border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1 w-32">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-									</select>
+						  
+									  {{-- Bouton "Ajouter au panier" --}}
+									<x-success-button class="h-14 px-6 py-2">
+										<input type="submit" value="Ajouter au panier">
+									</x-success-button>
 								</div>
-					  
-					  			{{-- Bouton "Ajouter au panier" --}}
-					  			<x-success-button class="h-14 px-6 py-2">
-									Ajouter au panier
-								</x-success-button>
-							</div>
+							</form>
 				  		</div>
 				</div>
 

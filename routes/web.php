@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Cart_productsController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +43,13 @@ Route::get('/dashboard', function () {
 
 // Routes ressource pour les produits
 Route::resource("products", ProductController::class);
+
+// Routes ressource pour le panier
+Route::resource("cart", CartController::class);
+
+// Routes ressource pour Cart_products
+Route::resource("cartproducts", Cart_productsControllert::class);
+
 
 // Routes du profil
 Route::middleware('auth')->group(function () {
