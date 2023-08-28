@@ -18,16 +18,30 @@ class Cart_productsController extends Controller
         // Ajout seulement si l'utilisateur est connecté
         if (Auth::id()) {
 
-            // Données de l'utilisateur (attributes)
+            // Données de l'utilisateur (attributes) : dd($user);
             $user = Auth::user();
-            // dd($user);
 
-            // Données du produit (attributes)
-            $product = Product::find($id);
-            // dd($product);
+            if ($user) {
+                // Données du produit (attributes) : dd($product);
+                $product = Product::find($id);
 
-            $cart = new Cart();
-            dd($cart);
+                // Nouveau panier
+                $cart = new Cart();
+                $cart->user_id = $user->id;
+                $cart->save(); // Sauvegarder le panier pour obtenir un ID
+
+                // Nouvelle class pivot associée au nouveau panier
+                $cart_product = new Cart_products();
+                $cart_product->cart_id = $cart->id;
+                $cart_product->product_id = $product->id;
+                $cart_product->product_price = $product->price;
+                $cart_product->quantity = $request->quantity;
+                $cart_product->save(); // Sauvegarder la classe pivot
+
+                return redirect()->back();
+            } else {
+                return redirect('login');
+            }
         } else {
             return redirect('login');
         }

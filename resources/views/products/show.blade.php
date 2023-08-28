@@ -86,14 +86,8 @@
 										<div class="text-center left-0 pt-2 right-0 absolute block text-xs uppercase tracking-wide font-semibold">
 											Quantité
 										</div>
-	
-										<select class="cursor-pointer appearance-none rounded-lg border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1 w-32">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-										</select>
+
+										<input type="number" name="quantity" id="quantity" value="1" min="1" max="10" class="cursor-pointer appearance-none rounded-lg border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1 w-32 mt-1">
 									</div>
 						  
 									{{-- Bouton "Ajouter au panier" --}}
