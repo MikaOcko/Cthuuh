@@ -48,9 +48,12 @@ class Cart_productsController extends Controller
     }
 
     // Supprimer un produit du panier
-    public function deleteToCart()
+    public function deleteToCart($id)
     {
-        // 
+        $cart_product = Cart_products::find($id);
+        $cart_product->delete();
+
+        return redirect()->back();
     }
 
 

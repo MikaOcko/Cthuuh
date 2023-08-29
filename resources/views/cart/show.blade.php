@@ -35,7 +35,7 @@
 
                         @php
                         // récupération des paniers dont le user_id correspond à l'id de l'utilisateur connecté
-                            $carts = \App\Models\Cart::where('user_id', '=', Auth::user()->id)->get();;
+                            $carts = \App\Models\Cart::where('user_id', '=', Auth::user()->id)->get();
                             // Données de tous les paniers du user (items) : dd($cart);
 
                             $totalQuantity = 0;
@@ -44,37 +44,41 @@
 
                         <!-- On parcourt la collection de Cart-->
                         @foreach ($carts as $cart)
-                            <tr class="">
-                                {{-- Nom du produit ("products.name")--}}
-                                <th scope="row" class="px-6 py-4 font-medium">
-                                    {{-- products() : récupération de la relation entre les modèles Cart et Product (recherche dans la table Cart)--}}
-                                    {{-- pivot : recherche dans la table pivot cart_products --}}
-                                    {{-- méthode first() : récupérer le premier produit associé à ce panier --}}
-                                    {{$cart->products()->first()->name}}
-                                </th>
+                            @if ($cart->products()->count() > 0)
+                                <tr class="">
 
-                                {{-- Quantité ("cart_products.quantity")--}}
-                                <td class="px-6 py-4">
-                                    {{$cart->products()->first()->pivot->quantity}}
-                                </td>
+                                    <th scope="row" class="px-6 py-4 font-medium">
+                                        {{-- products() : récupération de la relation entre les modèles Cart et Product (recherche dans la table Cart)--}}
+                                        {{-- pivot : recherche dans la table pivot cart_products --}}
+                                        {{-- méthode first() : récupérer le premier produit associé à ce panier --}}
+                                        {{$cart->products()->first()->name}}
+                                    </th>
 
-                                {{-- Prix total ("cart_products.total_price")--}}
-                                <td class="px-6 py-4">
-                                    {{$cart->products()->first()->pivot->total_price}} €
-                                </td>
+                                    {{-- Quantité ("cart_products.quantity")--}}
+                                    <td class="px-6 py-4">
+                                        {{$cart->products()->first()->pivot->quantity}}
+                                    </td>
 
-                                {{-- Action : supprimer le produit du panier --}}
-                                <td class="px-6 py-4">
-                                    <x-danger-button>
-                                        Supprimer
-                                    </x-danger-button>
-                                </td>
-                            </tr>
+                                    <td class="px-6 py-4">
+                                        {{$cart->products()->first()->pivot->total_price}} €
+                                    </td>
 
-                            @php
-                                $totalQuantity += $cart->products()->first()->pivot->quantity;
-                                $totalPrice += $cart->products()->first()->pivot->total_price;
-                            @endphp
+                                    <td class="px-6 py-4">
+                                        <x-danger-button>
+                                            {{-- <a href="{{url('/remove_cart', $cart->id)}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le produit')">
+                                                Supprimer
+                                            </a> --}}
+                                        </x-danger-button>
+                                    </td>
+                                </tr>
+                            
+
+                                @php
+                                    $totalQuantity += $cart->products()->first()->pivot->quantity;
+                                    $totalPrice += $cart->products()->first()->pivot->total_price;
+                                @endphp
+
+                            @endif
                         @endforeach
                     </tbody>
 

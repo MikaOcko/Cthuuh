@@ -56,6 +56,8 @@ Route::delete('/cart', [CartController::class, 'destroy'])->name('cart.destroy')
 
 // Route pour ajouter un produit dans le panier
 Route::post('/add_cart/{id}', [Cart_productsController::class, 'addToCart']);
+// Route pour supprimer un produit dans le panier
+Route::get('/remove_cart/{id}', [Cart_productsController::class, 'deleteToCart']);
 
 
 // Routes du profil
