@@ -47,6 +47,12 @@ class Cart_productsController extends Controller
         }
     }
 
+    // Supprimer un produit du panier
+    public function deleteToCart()
+    {
+        // 
+    }
+
 
     /**
      * Display a listing of the resource.
