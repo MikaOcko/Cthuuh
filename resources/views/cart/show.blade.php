@@ -65,9 +65,9 @@
 
                                     <td class="px-6 py-4">
                                         <x-danger-button>
-                                            {{-- <a href="{{url('/remove_cart', $cart->id)}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le produit')">
+                                            <a href="{{url('/remove_cart', $cart->id)}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le produit')">
                                                 Supprimer
-                                            </a> --}}
+                                            </a>
                                         </x-danger-button>
                                     </td>
                                 </tr>

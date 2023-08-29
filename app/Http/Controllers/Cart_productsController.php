@@ -53,6 +53,9 @@ class Cart_productsController extends Controller
         $cart_product = Cart_products::find($id);
         $cart_product->delete();
 
+        $cart = Cart::find($id);
+        $cart->delete();
+
         return redirect()->back();
     }
 
