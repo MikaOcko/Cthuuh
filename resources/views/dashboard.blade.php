@@ -49,7 +49,4 @@
         
     </x-slot>
 
-    <x-slot name="footer">
-        <x-footer/>
-    </x-slot>
 </x-app-layout>

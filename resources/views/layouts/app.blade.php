@@ -44,7 +44,7 @@
 
             <!-- Footer -->
             <footer>
-                {{$footer}}
+                <x-footer/>
             </footer>
         </div>
     </body>
