@@ -21,4 +21,11 @@ class Cart extends Model
     {
         return $this->hasMany(Cart_products::class);
     }
+
+    // récupération de données dans la table Product via la table pivot Cart_product
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'cart_products')
+            ->withPivot('quantity', 'total_price');
+    }
 }

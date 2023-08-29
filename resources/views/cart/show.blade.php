@@ -40,16 +40,25 @@
                         <!-- On parcourt la collection de Cart-->
                         @foreach ($carts as $cart)
                             <tr class="">
+                                {{-- Nom du produit ("products.name")--}}
                                 <th scope="row" class="px-6 py-4 font-medium">
-                                    {{-- {{$cart->$cart_product->name}} --}}
-                                    Lorem, ipsum.
+                                    {{-- products() : récupération de la relation entre les modèles Cart et Product (recherche dans la table Cart)--}}
+                                    {{-- pivot : recherche dans la table pivot cart_products --}}
+                                    {{-- méthode first() : récupérer le premier produit associé à ce panier --}}
+                                    {{$cart->products()->first()->name}}
                                 </th>
+
+                                {{-- Quantité ("cart_products.quantity")--}}
                                 <td class="px-6 py-4">
-                                    1
+                                    {{$cart->products()->first()->pivot->quantity}}
                                 </td>
+
+                                {{-- Prix total ("cart_products.total_price")--}}
                                 <td class="px-6 py-4">
-                                    $1999
+                                    {{$cart->products()->first()->pivot->total_price}} €
                                 </td>
+
+                                {{-- Action : supprimer le produit du panier --}}
                                 <td class="px-6 py-4">
                                     <x-danger-button>
                                         Supprimer
