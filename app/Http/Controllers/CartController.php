@@ -37,12 +37,6 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        $id = Auth::user()->id;
-
-        // récupération des paniers dont le user_id correspond à l'id de l'utilisateur connecté
-        $cart = Cart::where('user_id', '=', $id)->get();
-        // Données de tous les paniers du user (items) : dd($cart);
-
         return view("cart.show", compact('cart'));
     }
 

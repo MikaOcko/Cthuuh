@@ -32,9 +32,14 @@
                     </thead>
 
                     <tbody>
-                        {{-- Récupération des données des paniers --}}
+
                         @php
-                            $carts = \App\Models\Cart::all();
+                        // récupération des paniers dont le user_id correspond à l'id de l'utilisateur connecté
+                            $carts = \App\Models\Cart::where('user_id', '=', Auth::user()->id)->get();;
+                            // Données de tous les paniers du user (items) : dd($cart);
+
+                            $totalQuantity = 0;
+                            $totalPrice = 0;
                         @endphp
 
                         <!-- On parcourt la collection de Cart-->
@@ -65,14 +70,19 @@
                                     </x-danger-button>
                                 </td>
                             </tr>
+
+                            @php
+                                $totalQuantity += $cart->products()->first()->pivot->quantity;
+                                $totalPrice += $cart->products()->first()->pivot->total_price;
+                            @endphp
                         @endforeach
                     </tbody>
 
                     <tfoot>
                         <tr class="font-semibold">
                             <th scope="row" class="px-6 py-3 text-base">Total</th>
-                            <td class="px-6 py-3">3</td>
-                            <td class="px-6 py-3">21,000</td>
+                            <td class="px-6 py-3">{{$totalQuantity}}</td>
+                            <td class="px-6 py-3">{{$totalPrice}} €</td>
                         </tr>
                     </tfoot>
                 </table>
