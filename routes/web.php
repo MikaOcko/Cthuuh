@@ -48,7 +48,7 @@ Route::resource("products", ProductController::class);
 // Route pour montrer le panier
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 // Route pour supprimer le panier
-Route::delete('/cart', [CartController::class, 'destroy'])->name('cart.destroy');
+// Route::delete('/cart', [CartController::class, 'destroy'])->name('cart.destroy');
 
 
 // Routes ressource pour Cart_products
