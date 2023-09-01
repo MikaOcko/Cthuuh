@@ -71,7 +71,6 @@
                                         </x-danger-button>
                                     </td>
                                 </tr>
-                            
 
                                 @php
                                     $totalQuantity += $cart->products()->first()->pivot->quantity;
