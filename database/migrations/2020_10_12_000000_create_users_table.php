@@ -23,8 +23,7 @@ return new class extends Migration
             $table->string('street_name');
             $table->integer('area_code');
             $table->string('city');
-            $table->integer('street_number');
-            $table->foreignId('role_id')->default('1');
+            $table->foreignId('role_id')->constrained('roles', 'id')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

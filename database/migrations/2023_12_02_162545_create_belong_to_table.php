@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('belong_to', function (Blueprint $table) {
             $table->id();
+            // Pour spécifier la table et la colonne : constrained()
             $table->foreignId('order_id')->constrained('orders', 'id');
             $table->foreignId('product_id')->constrained('products', 'id');
             $table->timestamps();
+            // $table->foreignId('order_id');
+            // $table->foreignId('product_id');
         });
     }
 

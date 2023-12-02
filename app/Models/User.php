@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,7 +29,8 @@ class User extends Authenticatable
         'street_number',
         'street_name',
         'area_code',
-        'city'
+        'city',
+        'role_id'
     ];
 
     /**
@@ -51,9 +54,9 @@ class User extends Authenticatable
     ];
 
     // Relation avec la table 'roles' : un tuilisateur possède un rôle (par défaut : 1 (user))
-    public function role(): HasOne
+    public function role():BelongsToMany
     {
-        return $this->hasOne(Role::class);
+        return $this->belongsToMany(Role::class);
     }
 
     // Relation avec la table 'orders" : un utilisateur peut avoir plusieurs commandes
