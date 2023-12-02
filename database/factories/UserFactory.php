@@ -18,7 +18,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->randomDigit(),
+            'id' => fake()->randomNumber(2),
             'firstname' => fake()->firstName(),
             'lastname' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
@@ -28,6 +28,7 @@ class UserFactory extends Factory
             'street_name' => fake()->name(),
             'area_code' => fake()->randomNumber(),
             'city' => fake()->city(),
+            'role_id' => 1,
             'remember_token' => Str::random(10),
         ];
     }

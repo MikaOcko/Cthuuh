@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ url('/home')}}">
-                        <img src="../images/logo-texte.png" alt="logo texte de Cthuuh" class="block h-9 w-auto">
+                        <img src="../images/logo-animal.png" alt="logo de la marque Cthuuh" class="block h-14 w-auto">
                     </a>
                 </div>
 
