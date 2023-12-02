@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
@@ -15,20 +16,16 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
         'name',
         'picture',
         'description',
-        'price'
+        'price',
     ];
 
-    public function user(): BelongsTo
+    // Relation avec la table 'orders' : un produit peut être dans plusieurs commandes
+    // => passer par une table associative 'belongTo'
+    public function belongTo(): HasOne
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function carts_products()
-    {
-        return $this->belongsToMany(Cart_products::class);
+        return $this->hasOne(BelongTo::class);
     }
 }

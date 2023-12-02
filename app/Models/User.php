@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -19,9 +20,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
         'email',
         'password',
+        'street_number',
+        'street_name',
+        'area_code',
+        'city'
     ];
 
     /**
@@ -44,15 +50,22 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // Relations OneToMany avec les produits SI l'utilisateur est l'admin ('is_admin' === 1)
-    public function products(): HasMany
+    // Relation avec la table 'roles' : un tuilisateur possède un rôle (par défaut : 1 (user))
+    public function role(): HasOne
     {
-        return $this->hasMany(Product::class);
+        return $this->hasOne(Role::class);
     }
 
-    // Relations OneToMany avec le panier avec une contrainte d'unicité sur 'user_id'
-    public function carts(): HasMany
+    // Relation avec la table 'orders" : un utilisateur peut avoir plusieurs commandes
+    public function orders(): HasMany
     {
-        return $this->hasMany(Cart::class)->withDefault();
+        return $this->hasMany(Order::class);
     }
+
+
+    // Relations OneToMany avec le panier avec une contrainte d'unicité sur 'user_id'
+    // public function carts(): HasMany
+    // {
+    //     return $this->hasMany(Cart::class)->withDefault();
+    // }
 }

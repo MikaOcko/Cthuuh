@@ -19,11 +19,13 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::all()->random()->id,
+            // 'user_id' => User::all()->random()->id,
+            'product_id' =>$this->faker->random()->id,
             'name' => $this->faker->word(),
             'picture' => $this->faker->imageUrl(),
             'description' => $this->faker->text,
             'price' => $this->faker->randomFloat(2, 0, 1000),
+            'quantity' => $this->faker->random_int(0, 1000),
         ];
     }
 }
